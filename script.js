@@ -1,3 +1,21 @@
+// Takes two numbers and operator and performs calculation
+function operate (a, b, sym) {
+    switch (sym) {
+        case "+":
+            add(a, b);
+            break;
+        case "-":
+            sub(a, b);
+            break;
+        case "*":
+            times(a, b);
+            break;
+        case "/":
+            divides(a, b);
+            break;
+    }
+}
+
 // Adds a to b
 function add (a, b) {
     return a + b;

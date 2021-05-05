@@ -1,0 +1,20 @@
+.calc-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-style: solid;
+}
+
+.display {
+    border-style: solid;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 600px;
+    border-style: solid;
+}
