@@ -35,3 +35,13 @@ function times (a, b) {
 function divides (a, b) {
     return a / b;
 }
+
+let displayValue = 0;
+
+const displayWindow = document.querySelector(".display");
+const displayContent = document.createElement('p');
+
+displayContent.classList.add("displayContent");
+displayContent.innerText = displayValue;
+
+displayWindow.appendChild(displayContent);
