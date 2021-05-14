@@ -37,11 +37,24 @@ function divides (a, b) {
 }
 
 let displayValue = 0;
-
 const displayWindow = document.querySelector(".display");
 const displayContent = document.createElement('p');
+const numButtons = document.querySelectorAll(".num");
+
+// Event listeners 
+
+numButtons.forEach(button => {
+    button.addEventListener("click", doSomething);
+});
+
+function doSomething (e) {
+    displayValue = e.target.value;
+    return console.log(displayValue);
+}
+
 
 displayContent.classList.add("displayContent");
 displayContent.innerText = displayValue;
 
 displayWindow.appendChild(displayContent);
+

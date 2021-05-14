@@ -8,6 +8,8 @@
 }
 
 .display {
+    width: 600px;
+    text-align: right;
     border-style: solid;
 }
 
