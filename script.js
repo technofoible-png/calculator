@@ -2,16 +2,16 @@
 function operate (a, b, sym) {
     switch (sym) {
         case "+":
-            add(a, b);
+            return add(a, b);
             break;
         case "-":
-            sub(a, b);
+            return sub(a, b);
             break;
         case "*":
-            times(a, b);
+            return times(a, b);
             break;
         case "/":
-            divides(a, b);
+            return divides(a, b);
             break;
     }
 }
@@ -36,29 +36,65 @@ function divides (a, b) {
     return a / b;
 }
 
-let displayValue = 0;
+let opOne = 0;
+let opTwo = 0;
+let currentOp = " ";
+
+
 const displayWindow = document.querySelector(".display");
 const displayContent = document.createElement('p');
 const numButtons = document.querySelectorAll(".num");
+const clearButton = document.querySelector(".clear");
+const opButtons = document.querySelectorAll(".operator");
+const equalButton = document.querySelector(".equals");
 
 
-displayContent.classList.add("displayContent");
-
-
-displayWindow.appendChild(displayContent);
-
-
-displayContent.innerText = displayValue;
-
-// Event listeners 
-
+// Gets numbers from number buttons
 numButtons.forEach(button => {
+    button.addEventListener("click", getNum);
+});
+
+function displayValue(val) {
+    displayWindow.textContent = displayWindow.textContent + val;
+}
+
+function getNum (e) {
+    displayValue(e.target.value);
+}
+
+// Clears value
+clearButton.addEventListener("click", clearNum);
+
+function clearNum () {
+    displayWindow.textContent = " ";
+}
+
+
+opButtons.forEach(button => {
     button.addEventListener("click", doSomething);
 });
 
 function doSomething (e) {
-    displayValue = e.target.value;
-    displayContent.innerText = displayValue;
-    return displayValue;
+    setNum(displayWindow.textContent);
+    getOperation(e);
+    displayWindow.textContent = " ";
 }
 
+function getOperation (e) {
+    return currentOp = e.target.value;
+};
+
+function setNum (val) {
+    return opOne = Number(val)
+}
+
+
+
+equalButton.addEventListener("click", doOperation);
+
+function doOperation () {
+    opTwo = Number(displayWindow.textContent);
+    let result = operate(opOne, opTwo, currentOp);
+    displayWindow.textContent = " ";
+    return displayValue(result);
+}
