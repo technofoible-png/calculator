@@ -41,6 +41,15 @@ const displayWindow = document.querySelector(".display");
 const displayContent = document.createElement('p');
 const numButtons = document.querySelectorAll(".num");
 
+
+displayContent.classList.add("displayContent");
+
+
+displayWindow.appendChild(displayContent);
+
+
+displayContent.innerText = displayValue;
+
 // Event listeners 
 
 numButtons.forEach(button => {
@@ -49,12 +58,7 @@ numButtons.forEach(button => {
 
 function doSomething (e) {
     displayValue = e.target.value;
-    return console.log(displayValue);
+    displayContent.innerText = displayValue;
+    return displayValue;
 }
-
-
-displayContent.classList.add("displayContent");
-displayContent.innerText = displayValue;
-
-displayWindow.appendChild(displayContent);
 
